@@ -17,11 +17,9 @@ function recomendar() {
         let puntaje = 0;
 
         pelicula.generos.forEach(g => {
-
             if (gustos.includes(g)) {
                 puntaje++;
             }
-
         });
 
         if (puntaje > 0) {
@@ -37,7 +35,9 @@ function recomendar() {
 
     recomendaciones.sort((a, b) => b.puntaje - a.puntaje);
 
-    mostrarResultados(recomendaciones);
+    let top5 = recomendaciones.slice(0, 5);
+
+    mostrarResultados(top5);
 
 }
 
@@ -48,19 +48,21 @@ function mostrarResultados(lista) {
     resultado.innerHTML = "";
 
     if (lista.length === 0) {
-
-        resultado.innerHTML = "<li>No hay recomendaciones</li>";
+        resultado.innerHTML = "<p>No hay recomendaciones</p>";
         return;
-
     }
 
     lista.forEach(p => {
 
-        let li = document.createElement("li");
+        let tarjeta = document.createElement("div");
+        tarjeta.classList.add("tarjeta");
 
-        li.textContent = p.titulo + " ⭐ Coincidencias: " + p.puntaje;
+        tarjeta.innerHTML = `
+<h3>${p.titulo}</h3>
+<p class="puntaje">Coincidencias: ${p.puntaje}</p>
+`;
 
-        resultado.appendChild(li);
+        resultado.appendChild(tarjeta);
 
     });
 
