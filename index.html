@@ -1,11 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PeliHub</title>
 </head>
+
 <body>
-                                                                                                                                  
+    <h1>Recomendador de peliculas</h1>
+
+    <h3>Selecciona los generos que te gustan: </h3>
+
+    <label><input type="checkbox" value="accion"> Accion </label>
+    <label><input type="checkbox" value="comedia"> Comedia </label>
+    <label><input type="checkbox" value="drama"> Drama </label>
+    <label><input type="checkbox" value="terror"> Terror </label>
+    <label><input type="checkbox" value="ciencia"> Ciencia Ficcion </label>
+    <label><input type="checkbox" value="romace"> Romance </label>
+
+    <br><br>
+
+    <button onclick="recomendar()">Recomendar</button>
+
+    <h2>Peliculas recomendadas: </h2>
+
+    <ul id="resultado"></ul>
+
+    <script src="script.js"></script>
+    <script src="peliculas.js"></script>
 </body>
+
 </html>
